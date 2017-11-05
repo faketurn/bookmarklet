@@ -1,0 +1,1 @@
+javascript:prompt('HTML%20link','%3Ca%20href=%5C%22'+location.href+'%22%5C%3E'+document.title+'%3C/a%3E')();
