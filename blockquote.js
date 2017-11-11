@@ -1,4 +1,3 @@
-/* Version 2005-12-21 */
 (function(){
 	var depth=0;
 	var t=HTMLescape(document.title);
