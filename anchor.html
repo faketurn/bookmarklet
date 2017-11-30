@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>リンクを簡単にするブックマークレット</title>
+</head>
+<body>
+
+<script type="text/javascript">
+main()
+function main() {
+    let uri = location.href
+    let doc = document
+    let body = document.body
+    
+    let btn = createButton(doc)
+    let inp = createInp(doc)
+    let ta = createTA(doc, document.title, uri)
+    let p = createP(doc)
+    let div = createDiv(doc)
+    p.appendChild(inp)
+    div.appendChild(ta)
+    div.appendChild(p)
+    div.appendChild(btn)
+    body.appendChild(div)
+    ta.select()
+}
+function duplicatedAnchor() {
+    console.log(this.parentNode.previousSibling.value)
+    let uri = location.href
+    let title = this.value
+    this.parentNode.previousSibling.value = `<a href="${uri}">${title}</a>`
+}
+function createInp(doc) {
+    let inp = doc.createElement('input')
+    inp.value = doc.title
+    inp.id = 'title'
+    inp.type = 'text'
+    inp.style.width='100%';
+    inp.addEventListener('keyup', duplicatedAnchor)
+    return inp
+}
+function createP(doc) {
+    let p = doc.createElement('p')
+    p.appendChild(document.createTextNode("タイトル "))
+    return p
+}
+function createTA(doc,title,uri) {
+    var ta=doc.createElement('textarea');
+    ta.appendChild(document.createTextNode(`<a href="${uri}">${title}</a>`));
+    ta.style.display='block';
+    ta.style.width='100%';
+    ta.style.height='30vh';
+    ta.style.textAlign='left';
+    ta.style.fontFamily='monospace';
+    ta.style.fontSize='15px';
+    ta.style.backgroundColor='#fff';
+    return ta;
+}
+function createDiv(doc) {
+    var div=doc.createElement('div');
+    div.style.position='fixed';
+    div.style.top='5%';
+    div.style.right='5%';
+    div.style.zIndex='100';
+    div.style.width=document.title.length + 7 + "em"
+    div.style.minWidth="20em"
+    div.style.height='auto';
+    div.style.padding='10px 10px 2px';
+    div.style.fontSize='x-small';
+    div.style.backgroundColor='white';
+    div.style.border='solid 2px ButtonFace';
+    div.style.boxShadow='0 0 15px skyblue'
+    return div;
+}
+function createButton(doc){
+    var btn=doc.createElement('button');
+    btn.appendChild(document.createTextNode("close"));
+    btn.type='button';
+    btn.value='close';
+    btn.style.display='block';
+    btn.style.margin='0 auto';
+    btn.style.backgroundColor='ButtonFace';
+    btn.style.border='outset 2px ButtonFace';
+    btn.addEventListener('click',removeDiv,false);
+    return btn;
+}
+function removeDiv(){
+    var div=this.parentNode;
+    div.parentNode.removeChild(div);
+}
+</script>
+</body>
+</html>
