@@ -13,7 +13,7 @@
     var body=document.body;
     var btn=createButton(doc);
     var inp=createInp(doc);
-    var ta=createTA(doc, document.title, uri);
+    var ta=createTA(doc,document.title,uri);
     var p=createP(doc);
     var div=createDiv(doc);
     div.appendChild(btn);
@@ -34,7 +34,8 @@ function createInp(doc){
     inp.id='title';
     inp.type='text';
     inp.style.width='100%';
-    inp.addEventListener('keyup', syncTitle);
+    inp.style.boxSizing='border-box';
+    inp.addEventListener('keyup',syncTitle);
     return inp
 }
 function createP(doc){
@@ -46,8 +47,9 @@ function createTA(doc,title,uri){
     var ta=doc.createElement('textarea');
     ta.appendChild(document.createTextNode(`<a href="${uri}">${title}</a>`));
     ta.style.display='block';
-    ta.style.width='calc(100% - 4px)';
     ta.style.padding='2px';
+    ta.style.width='100%';
+    ta.style.boxSizing='border-box';
     ta.style.height='30vh';
     ta.style.textAlign='left';
     ta.style.fontFamily='cosolas';
@@ -61,7 +63,7 @@ function createDiv(doc){
     div.style.top='5%';
     div.style.right='5%';
     div.style.zIndex='100';
-    div.style.width=document.title.length + 7 + "em";
+    div.style.width='35%';
     div.style.minWidth="20em";
     div.style.height='auto';
     div.style.padding='0 10px 2px';
