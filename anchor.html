@@ -22,7 +22,7 @@
     div.appendChild(p);
     body.appendChild(div);
     ta.select();
-function duplicatedAnchor(){
+function syncTitle(){
     console.log(this.parentNode.previousSibling.value);
     var uri=location.href;
     var title=this.value;
@@ -34,7 +34,7 @@ function createInp(doc){
     inp.id='title';
     inp.type='text';
     inp.style.width='100%';
-    inp.addEventListener('keyup', duplicatedAnchor);
+    inp.addEventListener('keyup', syncTitle);
     return inp
 }
 function createP(doc){
@@ -66,8 +66,8 @@ function createDiv(doc){
     div.style.height='auto';
     div.style.padding='0 10px 2px';
     div.style.fontSize='x-small';
-    div.style.backgroundColor='white';
-    div.style.border='solid 1px ButtonFace';
+    div.style.backgroundColor='#ddd';
+    div.style.border='outset 1px ButtonFace';
     div.style.boxShadow='0 0 15px #eee';
     return div
 }
