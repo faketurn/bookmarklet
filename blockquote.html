@@ -31,8 +31,8 @@
 		var src=getSrc(w);
 		if(!src&&depth)return;
 		var quote='<blockquote cite=\x22'+url+'\x22>\n'
-			+src+'\n</blockquote>\n\n'+'<p><a href=\x22'+url+'\x22><cite>'
-			+t+'</cite></a>\u3088\u308A\u5F15\u7528</p>'
+			+src+'\n\n'+'<p><a href=\x22'+url+'\x22><cite>'
+			+t+'</cite></a>\u3088\u308A\u5F15\u7528</p>\n</blockquote>'
 			;
 		var ta=createTA(d,quote);
 		var div=createDiv(d);
