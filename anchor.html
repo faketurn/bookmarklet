@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>リンクを簡単にするブックマークレット</title>
+<title>&lt;a&gt;リンクを簡単にするブックマークレット</title>
 </head>
 <body>
 
@@ -13,7 +13,8 @@
     var body=document.body;
     var btn=createButton(doc);
     var inp=createInp(doc);
-    var ta=createTA(doc,document.title,uri);
+    var title=HTMLescape(document.title);
+    var ta=createTA(doc,title,uri);
     var p=createP(doc);
     var div=createDiv(doc);
     div.appendChild(btn);
@@ -25,8 +26,15 @@
 function syncTitle(){
     console.log(this.parentNode.previousSibling.value);
     var uri=location.href;
-    var title=this.value;
+    var title=HTMLescape(this.value);
     this.parentNode.previousSibling.value=`<a href="${uri}">${title}</a>`;
+}
+function HTMLescape(s){
+    s=s.replace(/&/g,'&amp;')
+        .replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;')
+        .replace(/\x22/g,'&quot;');
+    return s;
 }
 function createInp(doc){
     var inp=doc.createElement('input');
