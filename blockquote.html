@@ -30,9 +30,9 @@
 		var d=w.document;
 		var src=getSrc(w);
 		if(!src&&depth)return;
-		var quote='<blockquote cite=\x22'+url+'\x22>\n'
-			+src+'\n\n'+'<p><a href=\x22'+url+'\x22><cite>'
-			+t+'</cite></a>\u3088\u308A\u5F15\u7528</p>\n</blockquote>'
+		var quote='<blockquote\u0020cite=\x22'+url+'\x22>\n'
+			+src+'\n\n'+'<p\u0020class="cite"><a href=\x22'+url+'\x22><cite>'
+			+t+'</cite></a></p>\n</blockquote>'
 			;
 		var ta=createTA(d,quote);
 		var div=createDiv(d);
