@@ -1,0 +1,1 @@
+javascript:void(window.open("http://b.hatena.ne.jp/entry/"+location.href))
