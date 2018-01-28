@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<title>書きとめ事ソース</title>
+<body>
+<pre>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;
+&lt;meta name="viewport" content="width=device-width,initial-scale=1.0"&gt;
+&lt;title&gt;doctitle&lt;/title&gt;
+&lt;link rel="stylesheet" href="css/page.css" type="text/css"&gt;
+&lt;link rel="stylesheet" href="css/style.css" type="text/css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class="nav"&gt;
+&lt;p&gt;&lt;a href="index.html" title="1つ上へ"&gt;書きとめ事へ&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="article"&gt;
+&lt;h1&gt;doctitle&lt;/h1&gt;
+</pre>
+
+<pre><p class="publish_date"></p></pre>
+
+<pre>&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+<script type="text/javascript">
+let doc = document.implementation.createDocument("","",null);
+let d = new Date();
+let sr = new XMLSerializer();
+function txt(str){ return doc.createTextNode(str); }
+let day = ["日","月","火","水","木","金","土"][d.getDay()];
+let date = d.getDate();
+let month  = ["1","2","3","4","5","6","7","8","9","10","11","12"][d.getMonth()];
+let year = d.getFullYear();
+let nen = ("年");
+let gatu = ("月");
+let niti = ("日");
+let youbi = ("曜日");
+let today = year + nen + month + gatu + date + niti + ' ' + day + youbi
+let publish_date = document.getElementsByClassName('publish_date')[0]
+publish_date.appendChild(txt('<p class="publish_date">' + today + '</p>')) 
+</script>
